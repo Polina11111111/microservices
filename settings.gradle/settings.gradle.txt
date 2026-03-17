@@ -1,0 +1,6 @@
+rootProject.name = 'microservices-system'
+
+include 'discovery-server'
+include 'config-server'
+include 'api-gateway'
+include 'user-service'

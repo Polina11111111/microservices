@@ -1,0 +1,11 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false # Не регистрировать сам сервер в списке клиентов
+    fetch-registry: false       # Не скачивать список клиентов самому себe
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
