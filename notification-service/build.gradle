@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.5'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+    implementation 'org.springframework.kafka:spring-kafka'
+
+    // фикс CVE jakarta.mail
+    implementation 'org.eclipse.angus:jakarta.mail:2.0.4'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
+
+    // Testcontainers
+    testImplementation 'org.testcontainers:junit-jupiter:1.19.7'
+    testImplementation 'org.testcontainers:kafka:1.19.7'
+
+    // фикс CVE commons-compress
+    testImplementation 'org.apache.commons:commons-compress:1.26.1'
+
+    // GreenMail
+    testImplementation 'com.icegreen:greenmail-junit5:2.1.6'
+}
+
+test {
+    useJUnitPlatform()
+}
